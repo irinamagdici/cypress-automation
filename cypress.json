@@ -1,16 +1,16 @@
 {
   "projectId": "dr4zj1",
   "animationDistanceThreshold": 5,
-  "defaultCommandTimeout": 4000,
+  "defaultCommandTimeout": 10000,
   "env": {},
-  "execTimeout": 60000,
+  "execTimeout": 120000,
   "fileServerFolder": "",
   "fixturesFolder": "cypress/fixtures",
   "ignoreTestFiles": "window*",
   "integrationFolder": "cypress/integration",
   "screenshotsFolder": "cypress/screenshots",
   "supportFile": "cypress/support",
-  "pageLoadTimeout":10000,
+  "pageLoadTimeout":20000,
   "viewportWidth": 1200,
   "viewportHeight": 1000
 }
