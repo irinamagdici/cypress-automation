@@ -13,5 +13,9 @@ describe('Meineke', function() {
       cy.get('body').find('.dictionary-item').should('have.length',4);
       cy.get('body').find('.dictionary-item').eq(1).find('h2').should('have.text','Fuel Pumps');
     })
+    it('Logo Click', function(){
+      //cy.get('a.navbar-brand').click() // 2 matches, shows one is not visible
+      cy.get('a.navbar-brand:visible').click()
+    })
   })
 
