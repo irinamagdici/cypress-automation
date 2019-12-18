@@ -15,7 +15,10 @@ describe('Meineke', function() {
     })
     it('Logo Click', function(){
       //cy.get('a.navbar-brand').click() // 2 matches, shows one is not visible
-      cy.get('a.navbar-brand:visible').click()
+      cy.get('a.navbar-brand:visible > img').then(function(element){
+        cy.log(element.attr('alt')) // or text() jquery method; we resolved manually the promise
+      })
+
     })
   })
 
