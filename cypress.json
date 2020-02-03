@@ -3,14 +3,15 @@
   "animationDistanceThreshold": 5,
   "defaultCommandTimeout": 10000,
   "env": {},
-  "execTimeout": 120000,
+  "execTimeout": 160000,
   "fileServerFolder": "",
   "fixturesFolder": "cypress/fixtures",
   "ignoreTestFiles": "window*",
   "integrationFolder": "cypress/integration",
   "screenshotsFolder": "cypress/screenshots",
   "supportFile": "cypress/support",
-  "pageLoadTimeout":20000,
+  "pageLoadTimeout":30000,
   "viewportWidth": 1200,
-  "viewportHeight": 1000
+  "viewportHeight": 1000,
+  "baseUrl": "https://www.yoliamplify.com"
 }
