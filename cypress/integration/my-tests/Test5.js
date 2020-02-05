@@ -12,7 +12,7 @@ describe('Meineke.com Appointment Scheduler', function(){
     cy.visit('/locations/ca/northridge-2093/')
    })
 
-   it('Store page: on-the-fly services select',function(){
+   it.skip('Store page: on-the-fly services select',function(){
     cy.get('.slick-track > .franchise-schedule-day-block').eq(0).as('dayBlock')
 
     //cy.get('@dayBlock').trigger('mosueenter')
@@ -48,14 +48,14 @@ describe('Meineke.com Appointment Scheduler', function(){
     })
 
     it('Dynamic DD', function(){
-       cy.get('#my-meineke-search')
+       cy.get('#my-meineke-search').type('West Hollywood',{ delay: 100 })
     })
 
     it.skip('UI - other elements', function(){
         //cy.visit('')
-        cy.on('window:alert',(str) => {
+        cy.on('window:confirm',(str) => {
             /* Mocha assertion */
-            expect(str).to.equal('Confirm text ')
+            expect(str).to.equal('Do you want ...etc?')
         })
         /* Mouse hover menus */
 
