@@ -9,7 +9,7 @@ describe('YoliAmplify', function(){
     */
    before(function(){
     cy.log('Log in')
-    cy.visit('/')
+    cy.visit('/')  // set www.yoliamplify.com as base url
     cy.get('.navbar-login-form input[name="login"]').type('irina.odobescu@xivic.com')
     cy.get('.navbar-login-form input[name="password"]').type('Develop15*')
     cy.get('.navbar-login-form button[name="loginButton"]').click()
