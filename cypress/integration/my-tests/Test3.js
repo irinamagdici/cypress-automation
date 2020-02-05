@@ -15,8 +15,6 @@ describe('Music Hill Ranch Slicing', function(){
             }
         })
         */
-
-        //cy.wait(5000);
         
         /*
         const homeLink = cy.get('.main-nav ul li').contains('Home')

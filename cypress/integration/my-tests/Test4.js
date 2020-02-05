@@ -8,6 +8,7 @@ describe('YoliAmplify', function(){
     Login
     */
    before(function(){
+    cy.log('Log in')
     cy.visit('/')
     cy.get('.navbar-login-form input[name="login"]').type('irina.odobescu@xivic.com')
     cy.get('.navbar-login-form input[name="password"]').type('Develop15*')
@@ -32,21 +33,5 @@ describe('YoliAmplify', function(){
             }
         })
         cy.get('#prg-nav').contains('My Program').should('be.visible')
-    })
-
-    it.only('profile edit',function(){
-        cy.visit('/ckcommon/myProfile/user_properties.asp')
-        // checkboxes, radios - click or check
-        cy.get('selector').check()
-        /*
-        cy.visit({
-            url: 'http://localhost:3000/cgi-bin/newsletterSignup',
-            method: 'POST',
-            body: {
-              name: 'George P. Burdell',
-              email: 'burdell@microsoft.com'
-            }
-          })
-        */
     })
 })
