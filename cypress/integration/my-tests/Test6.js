@@ -24,6 +24,7 @@ describe('Trusum contact form', function(){
     cy.server()
     cy.route('POST','/contact-form.php').as('submitContactForm')
 
+
    })
 
    it('Contact Form',function(){
@@ -36,10 +37,17 @@ describe('Trusum contact form', function(){
         cy.get('#contactForm textarea[name="message"]').type(this.fixtureData.message)
 
         cy.get('#contactForm button').click()
-        cy.get('#contactForm .form__message').should('not.have.text','OOPs')
+        cy.get('#contactForm .form__message').should('not.have.text','API error. Please contact support.')
         cy.get('#modalContact .pop-up__response p').should('have.text','Thanks for reaching out! We\'ll be in touch soon.')
 
         cy.wait('@submitContactForm').its('status').should('eq', 200)
+
+        cy.get('@submitContactForm').should( (xhr) => {
+            expect(xhr.requestBody).to.include('email')
+            expect(xhr.requestHeaders).to.have.property('content-type')
+            expect(xhr.responseBody).to.have.property('response').eq('Thanks for reaching out! We\'ll be in touch soon.')
+
+        } )
     })
 
 
