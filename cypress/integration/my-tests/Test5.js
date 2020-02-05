@@ -9,18 +9,22 @@ describe('Meineke.com Appointment Scheduler', function(){
     */
    before(function(){
     cy.log('Log in')
-    cy.visit('https://www.meineke.com/locations/ca/northridge-2093/')
+    cy.visit('/locations/ca/northridge-2093/')
    })
 
-   it.skip('Store page: on-the-fly services select',function(){
+   it('Store page: on-the-fly services select',function(){
     cy.get('.slick-track > .franchise-schedule-day-block').eq(0).as('dayBlock')
+
+    //cy.get('@dayBlock').trigger('mosueenter')
     
     /* Checkboxes and Hover */
     //trigger(mouseove)
     //trigger(mouseenter)
 
+    
     cy.get('.slick-track > .franchise-schedule-day-block:nth-child(2) > .wrap-date-details input[type="checkbox"]').invoke('show').check({multiple:true})
     cy.get('.slick-track > .franchise-schedule-day-block:nth-child(2) > .wrap-date-details button').invoke('show').click()
+    
     cy.get('.sc-store-services-list > div').should('have.length',3)
   
     //cy.get('input[type="checkbox"]').check()
@@ -28,7 +32,7 @@ describe('Meineke.com Appointment Scheduler', function(){
     //cy.get('selector').check()
     //cy.get('selector').check().should('be.checked').and('have.value','some-value') //chai test library - chai assertions
     //cy.get('selector').uncheck().should('not.be.checked')
-    //cy.get('input[type="checkbox"]').check(['a','b']) //filter to check matched elements together
+    //cy.get('input[type="checkbox"]').check({multiple:true}) //filter to check matched elements together
 
     /* dropdowns */
 
@@ -43,16 +47,20 @@ describe('Meineke.com Appointment Scheduler', function(){
 
     })
 
-    it('UI - other elements', function(){
+    it('Dynamic DD', function(){
+       cy.get('#my-meineke-search')
+    })
+
+    it.skip('UI - other elements', function(){
         //cy.visit('')
         cy.on('window:alert',(str) => {
             /* Mocha assertion */
             expect(str).to.equal('Confirm text ')
         })
-
         /* Mouse hover menus */
 
         cy.get('#meineke-menu .submenu-container').eq(1).invoke('show').click()
+
        
     })
 

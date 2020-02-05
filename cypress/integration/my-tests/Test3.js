@@ -5,26 +5,31 @@
 
 describe('Music Hill Ranch Slicing', function(){
     it('Async demo',function(){
-        cy.visit('http://musichill:develop@musichill.dev-directory.com/slicing/');
+        //cy.visit('http://musichill:develop@musichill.dev-directory.com/slicing/');
 
-        /*
-        cy.visit('https://www.acme.com/', {
+        
+        cy.visit('http://musichill.dev-directory.com/slicing/', {
             auth: {
-                username: 'wile',
-                password: 'coyote'
+                username: 'musichill',
+                password: 'develop'
             }
         })
-        */
+        
         
         /*
         const homeLink = cy.get('.main-nav ul li').contains('Home')
-        cy.log(homeLink.text())
-        */
+        cy.log(homeLink.text())*/
+        
 
-       
+      
        cy.get('.main-nav ul li').contains('Home').then(function(homeLink){
-        cy.log( homeLink.text())
+         cy.log( homeLink.text())
+         //Cypress.$ ( homeLink ).hide() 
+         cy.wrap(homeLink).click()
        })
+
+       cy.get('.main-nav ul li').contains('Home').should('have.text','Home')
+
 
        cy.get('.main-nav ul li').contains('Houses').focus().click()
        cy.url().should('include','/slicing/houses')
@@ -44,8 +49,8 @@ describe('Music Hill Ranch Slicing', function(){
 
        // visits http://example.com/users?page=1&admin=true
        /*
-       cy.visit('http://example.com/users?page=1', {
-            qs: { admin: true }
+       cy.visit('http://example.com/users', {
+            qs: { admin: true , page :1}
        })
 
        
